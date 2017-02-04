@@ -3,18 +3,19 @@ package dev.beregulya.hibernate.dao;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "owners")
+@Table(name = "OWNERS")
 public class OwnersEntity {
 
     @Id
+    @Column(name = "OWNERS_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "NOTEBOOKS_ID")
     private NotebooksEntity notebooksEntity;
 
     public OwnersEntity() {

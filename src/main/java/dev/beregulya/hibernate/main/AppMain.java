@@ -14,16 +14,16 @@ public class AppMain {
 
         NotebooksEntity notebooksEntity = new NotebooksEntity();
         notebooksEntity.setSerial(123456789);
-        notebooksEntity.setVendor("Lenovo");
-        notebooksEntity.setModel("IdeaPad");
-        notebooksEntity.setManufactureDate("20/10/2015");
-        notebooksEntity.setPrice(399);
+        notebooksEntity.setVendor("Apple");
+        notebooksEntity.setModel("Macbook");
+        notebooksEntity.setManufactureDate("12/12/2016");
+        notebooksEntity.setPrice(1499);
 
         session.save(notebooksEntity);
         session.getTransaction().commit();
 
         OwnersEntity ownersEntity = new OwnersEntity();
-        ownersEntity.setName("Steve");
+        ownersEntity.setName("Nick");
         ownersEntity.setNotebooksEntity(notebooksEntity);
 
         session.beginTransaction();

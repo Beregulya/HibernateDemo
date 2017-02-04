@@ -3,26 +3,27 @@ package dev.beregulya.hibernate.dao;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "notebooks")
+@Table(name = "NOTEBOOKS")
 public class NotebooksEntity {
 
     @Id
+    @Column(name = "NOTEBOOKS_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "serial")
+    @Column(name = "SERIAL")
     private int serial;
 
-    @Column(name = "vendor")
+    @Column(name = "VENDOR")
     private String vendor;
 
-    @Column(name = "model")
+    @Column(name = "MODEL")
     private String model;
 
-    @Column(name = "manufacture_date")
+    @Column(name = "MANUFACTURE_DATE")
     private String manufactureDate;
 
-    @Column(name = "price")
+    @Column(name = "PRICE")
     private int price;
 
     public NotebooksEntity() {
