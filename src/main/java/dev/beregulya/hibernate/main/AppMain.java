@@ -9,17 +9,19 @@ public class AppMain {
     public static void main(String[] args) {
         System.out.println("Hibernate Tutorial");
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
-        session.beginTransaction();
+        //session.beginTransaction();
 
-        NotebooksEntity notebooksEntity = new NotebooksEntity();
+        /*NotebooksEntity notebooksEntity = new NotebooksEntity();
         notebooksEntity.setSerial(123454321);
         notebooksEntity.setVendor("Apple");
         notebooksEntity.setModel("Macbook");
         notebooksEntity.setManufactureDate("23/12/2016");
-        notebooksEntity.setPrice(1499);
+        notebooksEntity.setPrice(1499);*/
 
-        session.save(notebooksEntity);
-        session.getTransaction().commit();
+
+
+        //session.save(null);
+        //session.getTransaction().commit();
         session.close();
         HibernateSessionFactory.shutDown();
     }

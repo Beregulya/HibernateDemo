@@ -1,14 +1,12 @@
 package dev.beregulya.hibernate.dao;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "notebooks", schema = "database")
 public class NotebooksEntity {
 
-    private int id;
+    private long id;
     private int serial;
     private String vendor;
     private String model;
@@ -20,13 +18,12 @@ public class NotebooksEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    public int getId() {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -100,13 +97,13 @@ public class NotebooksEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        long result = id;
         result = 31 * result + serial;
         result = 31 * result + (vendor != null ? vendor.hashCode() : 0);
         result = 31 * result + (model != null ? model.hashCode() : 0);
         result = 31 * result + (manufactureDate != null ? manufactureDate.hashCode() : 0);
         result = 31 * result + price;
-        return result;
+        return (int) result;
     }
 
 }
