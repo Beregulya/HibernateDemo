@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class OwnersEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -34,6 +34,14 @@ public class OwnersEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public NotebooksEntity getNotebooksEntity() {
+        return notebooksEntity;
+    }
+
+    public void setNotebooksEntity(NotebooksEntity notebooksEntity) {
+        this.notebooksEntity = notebooksEntity;
     }
 
 }
