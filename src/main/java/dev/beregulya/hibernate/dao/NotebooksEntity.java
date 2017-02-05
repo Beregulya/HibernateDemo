@@ -26,6 +26,10 @@ public class NotebooksEntity {
     @Column(name = "PRICE")
     private int price;
 
+    @OneToOne
+    @JoinColumn(name = "OWNERS_ID")
+    private OwnersEntity ownersEntity;
+
     public NotebooksEntity() {
     }
 
@@ -75,6 +79,14 @@ public class NotebooksEntity {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public OwnersEntity getOwnersEntity() {
+        return ownersEntity;
+    }
+
+    public void setOwnersEntity(OwnersEntity ownersEntity) {
+        this.ownersEntity = ownersEntity;
     }
 
 }

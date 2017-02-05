@@ -9,24 +9,24 @@ public class AppMain {
 
     public static void main(String[] args) {
         System.out.println("Hibernate Tutorial");
+
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
 
         NotebooksEntity notebooksEntity = new NotebooksEntity();
         notebooksEntity.setSerial(123456789);
-        notebooksEntity.setVendor("Apple");
-        notebooksEntity.setModel("Macbook");
-        notebooksEntity.setManufactureDate("12/12/2016");
-        notebooksEntity.setPrice(1499);
-
-        session.save(notebooksEntity);
-        session.getTransaction().commit();
+        notebooksEntity.setVendor("Lenovo");
+        notebooksEntity.setModel("IdeaPad");
+        notebooksEntity.setManufactureDate("13/05/2015");
+        notebooksEntity.setPrice(499);
 
         OwnersEntity ownersEntity = new OwnersEntity();
-        ownersEntity.setName("Nick");
-        ownersEntity.setNotebooksEntity(notebooksEntity);
+        ownersEntity.setName("Yung");
 
-        session.beginTransaction();
+        ownersEntity.setNotebooksEntity(notebooksEntity);
+        notebooksEntity.setOwnersEntity(ownersEntity);
+
+        session.save(notebooksEntity);
         session.save(ownersEntity);
         session.getTransaction().commit();
 
